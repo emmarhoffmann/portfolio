@@ -40,6 +40,22 @@ const projects = [
   }
 ];
 
+const LinkIcon = () => (
+  <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+  </svg>
+);
+
 // Custom Icons Components remain the same
 const EmailIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -83,7 +99,7 @@ export default function Portfolio() {
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       {/* Navigation */}
-      <nav className="flex justify-between items-center px-6 md:px-24 py-20 max-w-7xl mx-auto">
+      <nav className="flex justify-between items-center px-6 md:px-24 py-10 max-w-7xl mx-auto">
         <span className="text-xl">EH</span>
         <div className="flex items-center gap-12">
           <a href="#experience" className="text-white hover:text-gray-300">Experience</a>
@@ -101,22 +117,23 @@ export default function Portfolio() {
 
       {/* Hero/Landing Section with Fixed Gradient */}
       <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto">
-        <p className="text-xl mb-4">Hi, I'm</p>
+        <p className="text-2xl mb-6 text-gray-300">Hi, I'm</p>
         <h1 
-          className="text-7xl font-bold mb-4"
+          className="text-[120px] font-bold mb-12 tracking-wide"
           style={{
             background: 'linear-gradient(to right, #88EDFF, #006C80)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            lineHeight: '1.1'
           }}
         >
           Emma Hoffmann
         </h1>
-        <h2 className="text-2xl mb-6">
+        <h2 className="text-4xl font-light mb-12 tracking-wide max-w-7xl">
           Computer Science Student • Business Owner & Digital Artist
         </h2>
-        <p className="text-lg max-w-3xl mb-12 text-gray-300">
+        <p className="text-xl font-light max-w-7xl mb-16 leading-relaxed text-gray-300">
           I'm a business owner, artist, designer, and technical lead at Lakeline Design, 
           and also a computer science student at St. Cloud State University. I enjoy 
           creating things that live on the internet, whether that be websites, 
@@ -124,7 +141,7 @@ export default function Portfolio() {
         </p>
         
         {/* Contact Buttons */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl">
           <SocialButton 
             text="Email" 
             color="#88EDFF"
@@ -163,7 +180,7 @@ export default function Portfolio() {
                 <li>- Reduced bounce rate by 40% through extensive code development and e-commerce enhancements</li>
               </ul>
             </div>
-            <span className="text-gray-400">March 2020 - Present</span>
+            <span className="text-gray-400">2020 - Present</span>
           </div>
         </div>
       </section>
@@ -253,7 +270,7 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor }
         borderColor: buttonColor
       }}
     >
-      <ExternalLink size={16} /> Live demo
+      <LinkIcon /> Live demo
     </button>
   </div>
 );
