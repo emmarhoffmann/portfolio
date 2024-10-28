@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+

@@ -67,10 +67,9 @@ const GithubIcon = () => (
 
 const SocialButton = ({ text, color, icon }) => (
   <button 
-    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium text-white"
+    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium text-white w-full"
     style={{ 
       borderColor: color,
-      minWidth: '200px'
     }}
   >
     {icon}
@@ -125,7 +124,7 @@ export default function Portfolio() {
         </p>
         
         {/* Contact Buttons */}
-        <div className="flex gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl mx-auto">
           <SocialButton 
             text="Email" 
             color="#88EDFF"
