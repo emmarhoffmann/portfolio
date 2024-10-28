@@ -81,15 +81,16 @@ const GithubIcon = () => (
   </svg>
 );
 
-const SocialButton = ({ text, color, icon }) => (
+const SocialButton = ({ text, color, icon, textColor }) => (
   <button 
-    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium text-white w-full"
+    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium"
     style={{ 
       borderColor: color,
+      color: textColor
     }}
   >
     {icon}
-    <span className="text-lg text-white">{text}</span>
+    <span className="text-lg">{text}</span>
   </button>
 );
 
@@ -102,10 +103,10 @@ export default function Portfolio() {
       <nav className="flex justify-between items-center px-6 md:px-24 py-10 max-w-7xl mx-auto">
         <span className="text-xl">EH</span>
         <div className="flex items-center gap-12">
-          <a href="#experience" className="text-white hover:text-gray-300">Experience</a>
-          <a href="#education" className="text-white hover:text-gray-300">Education</a>
-          <a href="#projects" className="text-white hover:text-gray-300">Projects</a>
-          <a href="#contact" className="text-white hover:text-gray-300">Contact</a>
+        <a href="#experience" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Experience</a>
+        <a href="#education" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Education</a>
+        <a href="#projects" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Projects</a>
+        <a href="#contact" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Contact</a>
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="hover:opacity-80"
@@ -117,7 +118,8 @@ export default function Portfolio() {
 
       {/* Hero/Landing Section with Fixed Gradient */}
       <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto">
-        <p className="text-2xl mb-6 text-gray-300">Hi, I'm</p>
+        <p className="text-2xl mb-6 ">
+          Hi, I'm</p>
         <h1 
           className="text-[120px] font-bold mb-12 tracking-wide"
           style={{
@@ -133,7 +135,7 @@ export default function Portfolio() {
         <h2 className="text-4xl font-light mb-12 tracking-wide max-w-7xl">
           Computer Science Student • Business Owner & Digital Artist
         </h2>
-        <p className="text-xl font-light max-w-7xl mb-16 leading-relaxed text-gray-300">
+        <p className={`text-xl font-light mb-16 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
           I'm a business owner, artist, designer, and technical lead at Lakeline Design, 
           and also a computer science student at St. Cloud State University. I enjoy 
           creating things that live on the internet, whether that be websites, 
@@ -141,99 +143,117 @@ export default function Portfolio() {
         </p>
         
         {/* Contact Buttons */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-4xl">
           <SocialButton 
             text="Email" 
             color="#88EDFF"
             icon={<EmailIcon />}
+            textColor={darkMode ? "white" : "black"}
           />
           <SocialButton 
             text="LinkedIn" 
             color="#55BDCF"
             icon={<LinkedInIcon />}
+            textColor={darkMode ? "white" : "black"}
           />
           <SocialButton 
             text="Resume" 
             color="#329CAE"
             icon={<ResumeIcon />}
+            textColor={darkMode ? "white" : "black"}
           />
           <SocialButton 
             text="Github" 
             color="#0C788B"
             icon={<GithubIcon />}
+            textColor={darkMode ? "white" : "black"}
           />
         </div>
       </section>
-
+      
       {/* Experience Section */}
-      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
-        <h2 className="text-2xl mb-8">EXPERIENCE</h2>
+      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EXPERIENCE</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
             <div className="space-y-1">
-              <h3 className="text-2xl font-normal">Business Owner, Digital Artist, Designer, Technical Lead</h3>
-              <h4 className="text-2xl font-normal italic">Lakeline Design</h4>
+              <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
+                Business Owner, Digital Artist, Designer, Technical Lead
+              </h3>
+              <h4 className={`text-2xl font-normal italic ${darkMode ? 'text-white' : 'text-black'}`}>
+                Lakeline Design
+              </h4>
               <p style={{ color: '#55BDCF' }}>Cambridge, Minnesota</p>
-              <ul className="space-y-2 mt-4 text-gray-300">
+              <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 <li>- Executed entire business operations: artwork creation, e-commerce platform administration, order fulfillment, and customer support, achieving over 3,000 sales, 300+ custom orders, and over 400 positive reviews</li>
                 <li>- Developed customized e-commerce features that combined technical improvements with design enhancements to elevate user experience, reducing bounce rate by 40%.</li>
                 <li>- Reduced bounce rate by 40% through extensive code development and e-commerce enhancements</li>
               </ul>
             </div>
-            <span className="text-gray-400">2020 - Present</span>
+            <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2020 - Present</span>
           </div>
         </div>
       </section>
 
       {/* Education Section */}
-      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
-        <h2 className="text-2xl mb-8">EDUCATION</h2>
+      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EDUCATION</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
             <div className="space-y-1">
-              <h3 className="text-2xl font-normal">St. Cloud State University</h3>
+              <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
+                St. Cloud State University
+              </h3>
               <p style={{ color: '#55BDCF' }}>St. Cloud, Minnesota</p>
-              <p className="text-gray-300">Bachelor of Science in Computer Science</p>
-              <ul className="space-y-2 mt-4 text-gray-300">
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Bachelor of Science in Computer Science
+              </p>
+              <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 <li>- 4.0 GPA | Dean's List</li>
                 <li>- Awarded $8,000+ scholarships by SCSU for academic excellence and leadership</li>
                 <li>- SCSU Computer Science Club</li>
               </ul>
             </div>
-            <span className="text-gray-400">2023 - 2025</span>
+            <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2023 - 2025</span>
           </div>
 
           <div className="flex justify-between items-start">
             <div className="space-y-1">
-              <h3 className="text-2xl font-normal">Anoka-Ramsey Community College</h3>
+              <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
+                Anoka-Ramsey Community College
+              </h3>
               <p style={{ color: '#55BDCF' }}>Coon Rapids, Minnesota</p>
-              <p className="text-gray-300">Associate of Science in Computer Science</p>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Associate of Science in Computer Science
+              </p>
             </div>
-            <span className="text-gray-400">2021 - 2023</span>
+            <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2021 - 2023</span>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
-        <h2 className="text-2xl mb-12">TECHNICAL PROJECTS</h2>
+      {/* Projects Section */}
+      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+        <h2 className={`text-2xl mb-12 ${darkMode ? 'text-white' : 'text-black'}`}>TECHNICAL PROJECTS</h2>
         <div className="grid grid-cols-3 gap-8 mb-8">
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={index} 
-              {...project} 
-              buttonColor={
-                index % 3 === 0 ? '#88EDFF' : 
-                index % 3 === 1 ? '#38A2B4' : 
-                '#026E81'
-              }
-              techColor={
-                index % 3 === 0 ? '#88EDFF' : 
-                index % 3 === 1 ? '#38A2B4' : 
-                '#026E81'
-              }
-            />
-          ))}
+          {projects.map((project, index) => {
+            // Define colors based on column position (index % 3)
+            const columnColor = 
+              index % 3 === 0 ? '#88EDFF' : 
+              index % 3 === 1 ? '#38A2B4' : 
+              '#026E81';
+            
+            return (
+              <ProjectCard 
+                key={index} 
+                {...project} 
+                buttonColor={columnColor}
+                techColor={columnColor}
+                darkMode={darkMode}
+              />
+            );
+          })}
         </div>
 
         {/* See All Projects Button */}
@@ -241,31 +261,40 @@ export default function Portfolio() {
           <button 
             className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-2 font-medium w-full max-w-md"
             style={{
-              background: 'black',
               border: '2px solid transparent',
               borderRadius: '8px',
-              backgroundImage: 'linear-gradient(black, black), linear-gradient(to right, #56BED0, #339DAF, #127E91)',
+              backgroundImage: darkMode 
+                ? 'linear-gradient(black, black), linear-gradient(to right, #56BED0, #339DAF, #127E91)' 
+                : 'linear-gradient(white, white), linear-gradient(to right, #56BED0, #339DAF, #127E91)',
               backgroundOrigin: 'border-box',
               backgroundClip: 'padding-box, border-box'
             }}
           >
-            <GithubIcon className="text-white" /> 
-            <span className="text-white">SEE ALL PROJECTS</span>
+            <GithubIcon className={darkMode ? "text-white" : "text-black"} /> 
+            <span className={darkMode ? "text-white" : "text-black"}>SEE ALL PROJECTS</span>
           </button>
         </div>
+
+        
       </section>
     </div>
   );
 }
 
-const ProjectCard = ({ title, description, tech, image, buttonColor, techColor }) => (
+const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode }) => (
   <div className="space-y-4">
     <img src={image} alt={title} className="w-full rounded-lg" />
-    <h3 className="text-2xl font-normal mt-4">{title}</h3>
-    <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
-    <p className="text-white text-sm">{tech}</p>
+    <h3 className={`text-2xl font-normal mt-4 ${darkMode ? 'text-white' : 'text-black'}`}>
+      {title}
+    </h3>
+    <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+      {description}
+    </p>
+    <p style={{ color: techColor }} className="text-sm">
+      {tech}
+    </p>
     <button 
-      className="flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium text-white"
+      className={`flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'}`}
       style={{ 
         borderColor: buttonColor
       }}
