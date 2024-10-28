@@ -6,37 +6,37 @@ const projects = [
     title: "Skinform",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
     tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff" 
   },
   {
     title: "Automation System",
     description: "System automating product management and image generation for Lakeline Design",
     tech: "Python • Shopify API • Automation",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff"
   },
   {
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
     tech: "Python • Tensorflow • OpenCV • React",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff"
   },
   {
     title: "AuroraAlert",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
     tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff"
   },
   {
     title: "Automation System",
     description: "System automating product management and image generation for Lakeline Design",
     tech: "Python • Shopify API • Automation",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff"
   },
   {
     title: "Analysis of Sorting Algorithms",
     description: "Comparative analysis of various sorting algorithm efficiency in C++, Java, and Python",
     tech: "Research • C++ • Java • Python",
-    image: "/api/placeholder/400/300"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff"
   }
 ];
 
@@ -84,7 +84,7 @@ export default function Portfolio() {
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       {/* Navigation */}
-      <nav className="flex justify-between items-center px-24 py-8">
+      <nav className="flex justify-between items-center px-6 md:px-24 py-20 max-w-7xl mx-auto">
         <span className="text-xl">EH</span>
         <div className="flex items-center gap-12">
           <a href="#experience" className="text-white hover:text-gray-300">Experience</a>
@@ -101,7 +101,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero/Landing Section with Fixed Gradient */}
-      <section className="px-24 py-20">
+      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto">
         <p className="text-xl mb-4">Hi, I'm</p>
         <h1 
           className="text-7xl font-bold mb-4"
@@ -150,7 +150,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section className="px-24 py-20 border-t border-gray-800">
+      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
         <h2 className="text-2xl mb-8">EXPERIENCE</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
@@ -170,7 +170,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section className="px-24 py-20 border-t border-gray-800">
+      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
         <h2 className="text-2xl mb-8">EDUCATION</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
@@ -199,7 +199,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section className="px-24 py-20 border-t border-gray-800">
+      <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto border-t border-gray-800">
         <h2 className="text-2xl mb-12">TECHNICAL PROJECTS</h2>
         <div className="grid grid-cols-3 gap-8 mb-8">
           {projects.map((project, index) => (
