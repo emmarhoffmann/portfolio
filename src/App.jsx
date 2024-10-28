@@ -67,15 +67,14 @@ const GithubIcon = () => (
 
 const SocialButton = ({ text, color, icon }) => (
   <button 
-    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium"
+    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium text-white"
     style={{ 
       borderColor: color,
-      color: color,
       minWidth: '200px'
     }}
   >
     {icon}
-    <span className="text-lg">{text}</span>
+    <span className="text-lg text-white">{text}</span>
   </button>
 );
 
@@ -226,12 +225,16 @@ export default function Portfolio() {
           <button 
             className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-2 font-medium w-full max-w-md"
             style={{
-              borderImage: 'linear-gradient(to right, #56BED0, #339DAF, #127E91) 1',
-              color: '#56BED0'
+              background: 'black',
+              border: '2px solid transparent',
+              borderRadius: '8px',
+              backgroundImage: 'linear-gradient(black, black), linear-gradient(to right, #56BED0, #339DAF, #127E91)',
+              backgroundOrigin: 'border-box',
+              backgroundClip: 'padding-box, border-box'
             }}
           >
-            <GithubIcon />
-            SEE ALL PROJECTS
+            <GithubIcon className="text-white" /> 
+            <span className="text-white">SEE ALL PROJECTS</span>
           </button>
         </div>
       </section>
@@ -244,15 +247,11 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor }
     <img src={image} alt={title} className="w-full rounded-lg" />
     <h3 className="text-2xl font-normal mt-4">{title}</h3>
     <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
-    <p className="text-sm" style={{ color: techColor }}>{tech}</p>
+    <p className="text-white text-sm">{tech}</p>
     <button 
-      className="flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium"
+      className="flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium text-white"
       style={{ 
-        borderColor: buttonColor,
-        color: buttonColor,
-        ':hover': {
-          backgroundColor: `${buttonColor}1A`
-        }
+        borderColor: buttonColor
       }}
     >
       <ExternalLink size={16} /> Live demo
