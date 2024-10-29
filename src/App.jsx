@@ -56,7 +56,6 @@ const LinkIcon = () => (
   </svg>
 );
 
-// Custom Icons Components remain the same
 const EmailIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
     <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
@@ -103,10 +102,10 @@ export default function Portfolio() {
       <nav className="flex justify-between items-center px-6 md:px-24 py-10 max-w-7xl mx-auto">
         <span className="text-xl">EH</span>
         <div className="flex items-center gap-12">
-        <a href="#experience" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Experience</a>
-        <a href="#education" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Education</a>
-        <a href="#projects" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Projects</a>
-        <a href="#contact" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Contact</a>
+          <a href="#experience" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Experience</a>
+          <a href="#education" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Education</a>
+          <a href="#projects" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Projects</a>
+          <a href="#contact" className={`${darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}>Contact</a>
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="hover:opacity-80"
@@ -118,7 +117,7 @@ export default function Portfolio() {
 
       {/* Hero/Landing Section with Fixed Gradient */}
       <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto">
-        <p className="text-2xl mb-6 ">
+        <p className="text-2xl mb-6">
           Hi, I'm</p>
         <h1 
           className="text-[120px] font-bold mb-12 tracking-wide"
@@ -172,7 +171,7 @@ export default function Portfolio() {
       </section>
       
       {/* Experience Section */}
-      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+      <section id="experience" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
         <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EXPERIENCE</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
@@ -196,7 +195,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+      <section id="education" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
         <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EDUCATION</h2>
         <div className="space-y-12">
           <div className="flex justify-between items-start">
@@ -233,12 +232,10 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      {/* Projects Section */}
-      <section className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+      <section id="projects" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
         <h2 className={`text-2xl mb-12 ${darkMode ? 'text-white' : 'text-black'}`}>TECHNICAL PROJECTS</h2>
         <div className="grid grid-cols-3 gap-8 mb-8">
           {projects.map((project, index) => {
-            // Define colors based on column position (index % 3)
             const columnColor = 
               index % 3 === 0 ? '#88EDFF' : 
               index % 3 === 1 ? '#38A2B4' : 
@@ -274,8 +271,22 @@ export default function Portfolio() {
             <span className={darkMode ? "text-white" : "text-black"}>SEE ALL PROJECTS</span>
           </button>
         </div>
+      </section>
 
-        
+      {/* Contact Section */}
+      <section id="contact" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>CONTACT</h2>
+        <div className="max-w-2xl">
+          <p className={`text-xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          </p>
+          <SocialButton 
+            text="Send me an email" 
+            color="#88EDFF"
+            icon={<EmailIcon />}
+            textColor={darkMode ? "white" : "black"}
+          />
+        </div>
       </section>
     </div>
   );
