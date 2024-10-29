@@ -6,37 +6,43 @@ const projects = [
     title: "Skinform",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
     tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff" 
+    image: "https://placehold.co/400x300/1a1a1a/ffffff", 
+    url: "https://github.com/emmarhoffmann/skinform"
   },
   {
     title: "Automation System",
     description: "System automating product management and image generation for Lakeline Design",
-    tech: "Python • Shopify API • Automation",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff"
+    tech: "Python • Shopify API • Automation • Image Processing",
+    image: "https://placehold.co/400x300/1a1a1a/ffffff",
+    url: "https://github.com/emmarhoffmann/Lakeline-Design-Automation-System"
   },
   {
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
     tech: "Python • Tensorflow • OpenCV • React",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff",
+    url: "https://github.com/emmarhoffmann/StyleSyncAI"
   },
   {
     title: "AuroraAlert",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
-    tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff"
+    tech: "Python • Webscraping • API Integration • Automation",
+    image: "https://placehold.co/400x300/1a1a1a/ffffff",
+    url: "https://github.com/emmarhoffmann/AuroraAlert"
   },
   {
     title: "Automation System",
     description: "System automating product management and image generation for Lakeline Design",
     tech: "Python • Shopify API • Automation",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff",
+    url: ""
   },
   {
     title: "Analysis of Sorting Algorithms",
     description: "Comparative analysis of various sorting algorithm efficiency in C++, Java, and Python",
     tech: "Research • C++ • Java • Python",
-    image: "https://placehold.co/400x300/1a1a1a/ffffff"
+    image: "https://placehold.co/400x300/1a1a1a/ffffff",
+    url: "https://github.com/emmarhoffmann/Comparative-Analysis-of-Sorting-Algorithm-Efficiency"
   }
 ];
 
@@ -143,30 +149,38 @@ export default function Portfolio() {
         
         {/* Contact Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-4xl">
-          <SocialButton 
-            text="Email" 
-            color="#88EDFF"
-            icon={<EmailIcon />}
-            textColor={darkMode ? "white" : "black"}
-          />
-          <SocialButton 
-            text="LinkedIn" 
-            color="#55BDCF"
-            icon={<LinkedInIcon />}
-            textColor={darkMode ? "white" : "black"}
-          />
-          <SocialButton 
-            text="Resume" 
-            color="#329CAE"
-            icon={<ResumeIcon />}
-            textColor={darkMode ? "white" : "black"}
-          />
-          <SocialButton 
-            text="Github" 
-            color="#0C788B"
-            icon={<GithubIcon />}
-            textColor={darkMode ? "white" : "black"}
-          />
+          <a href="mailto:erhoffmann@gmail.com">
+            <SocialButton 
+              text="Email" 
+              color="#88EDFF"
+              icon={<EmailIcon />}
+              textColor={darkMode ? "white" : "black"}
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/emmarhoffmann/" target="_blank" rel="noopener noreferrer">
+            <SocialButton 
+              text="LinkedIn" 
+              color="#55BDCF"
+              icon={<LinkedInIcon />}
+              textColor={darkMode ? "white" : "black"}
+            />
+          </a>
+          <a href="/portfolio/assets/Emma-Hoffmann-Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <SocialButton 
+              text="Resume" 
+              color="#329CAE"
+              icon={<ResumeIcon />}
+              textColor={darkMode ? "white" : "black"}
+            />
+          </a>
+          <a href="https://github.com/emmarhoffmann" target="_blank" rel="noopener noreferrer">
+            <SocialButton 
+              text="Github" 
+              color="#0C788B"
+              icon={<GithubIcon />}
+              textColor={darkMode ? "white" : "black"}
+            />
+          </a>
         </div>
       </section>
       
@@ -280,19 +294,31 @@ export default function Portfolio() {
           <p className={`text-xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
-          <SocialButton 
-            text="Send me an email" 
-            color="#88EDFF"
-            icon={<EmailIcon />}
-            textColor={darkMode ? "white" : "black"}
-          />
+          <div className="flex flex-col md:flex-row gap-4">
+            <a href="mailto:erhoffmann@gmail.com">
+              <SocialButton 
+                text="Send me an email" 
+                color="#88EDFF"
+                icon={<EmailIcon />}
+                textColor={darkMode ? "white" : "black"}
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/emmarhoffmann/" target="_blank" rel="noopener noreferrer">
+              <SocialButton 
+                text="Connect with me on LinkedIn" 
+                color="#55BDCF"
+                icon={<LinkedInIcon />}
+                textColor={darkMode ? "white" : "black"}
+              />
+            </a>
+          </div>
         </div>
       </section>
     </div>
   );
 }
 
-const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode }) => (
+const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode, url }) => (
   <div className="space-y-4">
     <img src={image} alt={title} className="w-full rounded-lg" />
     <h3 className={`text-2xl font-normal mt-4 ${darkMode ? 'text-white' : 'text-black'}`}>
@@ -304,13 +330,16 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, 
     <p style={{ color: techColor }} className="text-sm">
       {tech}
     </p>
-    <button 
-      className={`flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'}`}
+    <a 
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
       style={{ 
         borderColor: buttonColor
       }}
     >
       <LinkIcon /> Live demo
-    </button>
+    </a>
   </div>
 );
