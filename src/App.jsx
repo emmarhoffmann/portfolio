@@ -1,6 +1,22 @@
 import { useState } from 'react';
 import { Sun, ExternalLink } from 'lucide-react';
 
+// Color sets for dark and light modes
+const colors = {
+  dark: {
+    primary: '#88EDFF',
+    secondary: '#55BDCF',
+    tertiary: '#38A2B4',
+    quaternary: '#026E81'
+  },
+  light: {
+    primary: '#55BDCF',
+    secondary: '#329CAE',
+    tertiary: '#0C788B',
+    quaternary: '#006C80'
+  }
+};
+
 const projects = [
   {
     title: "Skinform",
@@ -87,8 +103,9 @@ const GithubIcon = () => (
   </svg>
 );
 
-const SocialButton = ({ text, color, icon, textColor }) => (
+const SocialButton = ({ text, color, icon, textColor, onClick }) => (
   <button 
+    onClick={onClick}
     className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-2 font-medium"
     style={{ 
       borderColor: color,
@@ -102,6 +119,7 @@ const SocialButton = ({ text, color, icon, textColor }) => (
 
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(true);
+  const currentColors = darkMode ? colors.dark : colors.light;
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
@@ -122,14 +140,13 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero/Landing Section with Fixed Gradient */}
+      {/* Hero/Landing Section */}
       <section className="px-6 md:px-24 py-20 max-w-7xl mx-auto">
-        <p className="text-2xl mb-6">
-          Hi, I'm</p>
+        <p className="text-2xl mb-6">Hi, I'm</p>
         <h1 
           className="text-[120px] font-bold mb-12 tracking-wide"
           style={{
-            background: 'linear-gradient(to right, #88EDFF, #006C80)',
+            background: 'linear-gradient(to right, #6FD5E7, #006C80)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -152,28 +169,28 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-4xl">
           <SocialButton 
             text="Email" 
-            color="#88EDFF"
+            color={currentColors.primary}
             icon={<EmailIcon />}
             textColor={darkMode ? "white" : "black"}
             onClick={() => window.location.href = 'mailto:erhoffmann@gmail.com'}
           />
           <SocialButton 
             text="LinkedIn" 
-            color="#55BDCF"
+            color={currentColors.secondary}
             icon={<LinkedInIcon />}
             textColor={darkMode ? "white" : "black"}
             onClick={() => window.open('https://www.linkedin.com/in/emmarhoffmann/', '_blank')}
           />
           <SocialButton 
             text="Resume" 
-            color="#329CAE"
+            color={currentColors.tertiary}
             icon={<ResumeIcon />}
             textColor={darkMode ? "white" : "black"}
             onClick={() => window.open('/portfolio/assets/Emma-Hoffmann-Resume.pdf', '_blank')}
           />
           <SocialButton 
             text="Github" 
-            color="#0C788B"
+            color={currentColors.quaternary}
             icon={<GithubIcon />}
             textColor={darkMode ? "white" : "black"}
             onClick={() => window.open('https://github.com/emmarhoffmann', '_blank')}
@@ -193,7 +210,7 @@ export default function Portfolio() {
               <h4 className={`text-2xl font-normal italic ${darkMode ? 'text-white' : 'text-black'}`}>
                 Lakeline Design
               </h4>
-              <p style={{ color: '#55BDCF' }}>Cambridge, Minnesota</p>
+              <p style={{ color: currentColors.secondary }}>Cambridge, Minnesota</p>
               <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 <li>- Executed entire business operations: artwork creation, e-commerce platform administration, order fulfillment, and customer support, achieving over 3,000 sales, 300+ custom orders, and over 400 positive reviews</li>
                 <li>- Developed customized e-commerce features that combined technical improvements with design enhancements to elevate user experience, reducing bounce rate by 40%.</li>
@@ -205,154 +222,164 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section id="education" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
-        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EDUCATION</h2>
-        <div className="space-y-12">
-          <div className="flex justify-between items-start">
-            <div className="space-y-1">
-              <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
-                St. Cloud State University
-              </h3>
-              <p style={{ color: '#55BDCF' }}>St. Cloud, Minnesota</p>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Bachelor of Science in Computer Science
-              </p>
-              <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <li>- 4.0 GPA | Dean's List</li>
-                <li>- Awarded $8,000+ scholarships by SCSU for academic excellence and leadership</li>
-                <li>- SCSU Computer Science Club</li>
-              </ul>
-            </div>
-            <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2023 - 2025</span>
-          </div>
+{/* Education Section */}
+<section id="education" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+       <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>EDUCATION</h2>
+       <div className="space-y-12">
+         <div className="flex justify-between items-start">
+           <div className="space-y-1">
+             <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
+               St. Cloud State University
+             </h3>
+             <p style={{ color: currentColors.secondary }}>St. Cloud, Minnesota</p>
+             <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+               Bachelor of Science in Computer Science
+             </p>
+             <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+               <li>- 4.0 GPA | Dean's List</li>
+               <li>- Awarded $8,000+ scholarships by SCSU for academic excellence and leadership</li>
+               <li>- SCSU Computer Science Club</li>
+             </ul>
+           </div>
+           <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2023 - 2025</span>
+         </div>
 
-          <div className="flex justify-between items-start">
-            <div className="space-y-1">
-              <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
-                Anoka-Ramsey Community College
-              </h3>
-              <p style={{ color: '#55BDCF' }}>Coon Rapids, Minnesota</p>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Associate of Science in Computer Science
-              </p>
-            </div>
-            <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2021 - 2023</span>
-          </div>
-        </div>
-      </section>
+         <div className="flex justify-between items-start">
+           <div className="space-y-1">
+             <h3 className={`text-2xl font-normal ${darkMode ? 'text-white' : 'text-black'}`}>
+               Anoka-Ramsey Community College
+             </h3>
+             <p style={{ color: currentColors.secondary }}>Coon Rapids, Minnesota</p>
+             <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+               Associate of Science in Computer Science
+             </p>
+           </div>
+           <span className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>2021 - 2023</span>
+         </div>
+       </div>
+     </section>
 
-      {/* Projects Section */}
-      <section id="projects" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
-        <h2 className={`text-2xl mb-12 ${darkMode ? 'text-white' : 'text-black'}`}>TECHNICAL PROJECTS</h2>
-        <div className="grid grid-cols-3 gap-8 mb-8">
-          {projects.map((project, index) => {
-            const columnColor = 
-              index % 3 === 0 ? '#88EDFF' : 
-              index % 3 === 1 ? '#38A2B4' : 
-              '#026E81';
-            
-            return (
-              <ProjectCard 
-                key={index} 
-                {...project} 
-                buttonColor={columnColor}
-                techColor={columnColor}
-                darkMode={darkMode}
-              />
-            );
-          })}
-        </div>
+     {/* Projects Section */}
+     <section id="projects" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+       <h2 className={`text-2xl mb-12 ${darkMode ? 'text-white' : 'text-black'}`}>TECHNICAL PROJECTS</h2>
+       <div className="grid grid-cols-3 gap-8 mb-8">
+         {projects.map((project, index) => {
+           const columnColor = darkMode ?
+             (index % 3 === 0 ? colors.dark.primary : 
+              index % 3 === 1 ? colors.dark.tertiary : 
+              colors.dark.quaternary) :
+             (index % 3 === 0 ? colors.light.primary : 
+              index % 3 === 1 ? colors.light.tertiary : 
+              colors.light.quaternary);
+           
+           return (
+             <ProjectCard 
+               key={index} 
+               {...project} 
+               buttonColor={columnColor}
+               techColor={columnColor}
+               darkMode={darkMode}
+             />
+           );
+         })}
+       </div>
 
-        {/* See All Projects Button */}
-        <div className="flex justify-center mt-12">
-          <a 
-            href="https://github.com/emmarhoffmann?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-2 font-medium w-full max-w-md"
-            style={{
-              border: '2px solid transparent',
-              borderRadius: '8px',
-              backgroundImage: darkMode 
-                ? 'linear-gradient(black, black), linear-gradient(to right, #56BED0, #339DAF, #127E91)' 
-                : 'linear-gradient(white, white), linear-gradient(to right, #56BED0, #339DAF, #127E91)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box'
-            }}
-          >
-            <GithubIcon className={darkMode ? "text-white" : "text-black"} /> 
-            <span className={darkMode ? "text-white" : "text-black"}>SEE ALL PROJECTS</span>
-          </a>
-        </div>
-      </section>
+       {/* See All Projects Button */}
+       <div className="flex justify-center mt-12">
+         <a 
+           href="https://github.com/emmarhoffmann?tab=repositories"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-2 font-medium w-full max-w-md"
+           style={{
+             border: '2px solid transparent',
+             borderRadius: '8px',
+             backgroundImage: darkMode 
+               ? `linear-gradient(black, black), linear-gradient(to right, ${colors.dark.secondary}, ${colors.dark.tertiary}, ${colors.dark.quaternary})` 
+               : `linear-gradient(white, white), linear-gradient(to right, ${colors.light.secondary}, ${colors.light.tertiary}, ${colors.light.quaternary})`,
+             backgroundOrigin: 'border-box',
+             backgroundClip: 'padding-box, border-box'
+           }}
+         >
+           <GithubIcon className={darkMode ? "text-white" : "text-black"} /> 
+           <span className={darkMode ? "text-white" : "text-black"}>SEE ALL PROJECTS</span>
+         </a>
+       </div>
+     </section>
 
-      {/* Contact Section */}
-      <section id="contact" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
-        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>CONTACT</h2>
-        <div className="max-w-2xl">
-          <p className={`text-xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4">
-            <a href="mailto:erhoffmann@gmail.com">
-              <SocialButton 
-                text="Send me an email" 
-                color="#88EDFF"
-                icon={<EmailIcon />}
-                textColor={darkMode ? "white" : "black"}
-              />
-            </a>
-            <a href="https://www.linkedin.com/in/emmarhoffmann/" target="_blank" rel="noopener noreferrer">
-              <SocialButton 
-                text="Connect with me on LinkedIn" 
-                color="#55BDCF"
-                icon={<LinkedInIcon />}
-                textColor={darkMode ? "white" : "black"}
-              />
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+     {/* Contact Section */}
+     <section id="contact" className={`px-6 md:px-24 py-20 max-w-7xl mx-auto border-t ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+       <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>CONTACT</h2>
+       <div className="max-w-2xl">
+         <p className={`text-xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+           Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+         </p>
+         <div className="flex flex-col md:flex-row gap-4">
+           <a href="mailto:erhoffmann@gmail.com">
+             <SocialButton 
+               text="Send me an email" 
+               color={currentColors.primary}
+               icon={<EmailIcon />}
+               textColor={darkMode ? "white" : "black"}
+             />
+           </a>
+           <a href="https://www.linkedin.com/in/emmarhoffmann/" target="_blank" rel="noopener noreferrer">
+             <SocialButton 
+               text="Connect with me on LinkedIn" 
+               color={currentColors.secondary}
+               icon={<LinkedInIcon />}
+               textColor={darkMode ? "white" : "black"}
+             />
+           </a>
+         </div>
+       </div>
+     </section>
+   </div>
+ );
 }
 
 const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode, liveDemo, github }) => (
-  <div className="space-y-4">
-    <img src={image} alt={title} className="w-full rounded-lg" />
-    <h3 className={`text-2xl font-normal mt-4 ${darkMode ? 'text-white' : 'text-black'}`}>
-      {title}
-    </h3>
-    <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-      {description}
-    </p>
-    <p style={{ color: techColor }} className="text-sm">
-      {tech}
-    </p>
-    <div className="flex flex-col space-y-2">
-      {liveDemo && (
-        <a 
-          href={liveDemo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
-          style={{ borderColor: buttonColor }}
-        >
-          <LinkIcon /> Live Demo
-        </a>
-      )}
-      {github && (
-        <a 
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
-          style={{ borderColor: buttonColor }}
-        >
-          <GithubIcon /> View Project
-        </a>
-      )}
-    </div>
-  </div>
+ <div className="space-y-4">
+   <img 
+     src={image} 
+     alt={title} 
+     className="w-full rounded-lg" 
+     style={{
+       border: `1px solid ${darkMode ? '#4a4a4a' : '#d1d1d1'}`
+     }}
+   />
+   <h3 className={`text-2xl font-normal mt-4 ${darkMode ? 'text-white' : 'text-black'}`}>
+     {title}
+   </h3>
+   <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+     {description}
+   </p>
+   <p style={{ color: techColor }} className="text-sm">
+     {tech}
+   </p>
+   <div className="flex flex-col space-y-2">
+     {liveDemo && (
+       <a 
+         href={liveDemo}
+         target="_blank"
+         rel="noopener noreferrer"
+         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+         style={{ borderColor: buttonColor }}
+       >
+         <LinkIcon /> Live Demo
+       </a>
+     )}
+     {github && (
+       <a 
+         href={github}
+         target="_blank"
+         rel="noopener noreferrer"
+         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+         style={{ borderColor: buttonColor }}
+       >
+         <GithubIcon /> View Project
+       </a>
+     )}
+   </div>
+ </div>
 );
