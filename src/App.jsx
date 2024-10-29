@@ -160,9 +160,9 @@ export default function Portfolio() {
         </h2>
         <p className={`text-xl font-light mb-16 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
           I'm a business owner, artist, designer, and technical lead at Lakeline Design, 
-          and also a computer science student at St. Cloud State University. I enjoy 
-          creating things that live on the internet, whether that be websites, 
-          applications, or anything in between.
+          and also a computer science student at St. Cloud State University. I love bringing creative and technical 
+          concepts to life in the digital space, from innovative tools to practical solutions, where I can 
+          continuously learn, tackle complex challenges, and make a real impact.
         </p>
         
         {/* Contact Buttons */}
