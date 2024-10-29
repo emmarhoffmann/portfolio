@@ -22,7 +22,7 @@ const projects = [
     title: "Skinform",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
     tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
-    image: "/portfolio/public/skinform.jpg", 
+    image: "portfolio/skinform.jpg", 
     liveDemo: "https://skinform.vercel.app/",
     github: "https://github.com/emmarhoffmann/skinform"
   },
@@ -30,35 +30,35 @@ const projects = [
     title: "Automation System",
     description: "Co-developed by Emma Hoffmann and Blake Norman, this system automates product management and image processing for Lakeline Design on Etsy and Shopify",
     tech: "Python • Shopify API • Automation • Image Processing",
-    image: "/portfolio/public/AutomationSystem.jpg",
+    image: "portfolio/AutomationSystem.jpg",
     github: "https://github.com/emmarhoffmann/Lakeline-Design-Automation-System"
   },
   {
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
     tech: "Python • Tensorflow • OpenCV • React",
-    image: "/portfolio/public/StyleSyncAI.JPG",
+    image: "portfolio/StyleSyncAI.JPG",
     github: "https://github.com/emmarhoffmann/StyleSyncAI"
   },
   {
     title: "Aurora Alert",
     description: "Automated Python application that monitors and alerts users to potential aurora borealis sightings based on real-time geomagnetic activity",
     tech: "Python • Webscraping • API Integration • Automation",
-    image: "/portfolio/public/AuroraAlert.png",
+    image: "portfolio/AuroraAlert.png",
     github: "https://github.com/emmarhoffmann/AuroraAlert"
   },
   {
     title: "Star Sort",
     description: "A multi-model machine learning project achieving up to 100% accuracy in classifying star types based on their attributes using five different algorithms.",
     tech: "Python • scikit-learn • Machine Learning • Data Analysis • Modeling",
-    image: "/portfolio/public/StarSort.jpg",
+    image: "portfolio/StarSort.jpg",
     github: "https://github.com/emmarhoffmann/StarSort"
   },
   {
     title: "Sorting Algorithms Analysis",
     description: "Comparative analysis of the efficiency of five sorting algorithms tested in C++, Java, and Python to evaluate performance",
     tech: "C++ • Java • Python • Algorithm Efficiency • Research",
-    image: "/portfolio/public/SortingAlgorithmsAnalysis.png",
+    image: "portfolio/SortingAlgorithmsAnalysis.png",
     github: "https://github.com/emmarhoffmann/Comparative-Analysis-of-Sorting-Algorithm-Efficiency"
   }
 ];
