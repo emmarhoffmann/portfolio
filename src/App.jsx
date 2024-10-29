@@ -39,7 +39,7 @@ const projects = [
     github: "https://github.com/emmarhoffmann/StarSort"
   },
   {
-    title: "Analysis of Sorting Algorithms",
+    title: "Sorting Algorithms Analysis",
     description: "Comparative analysis of the efficiency of five sorting algorithms tested in C++, Java, and Python to evaluate performance",
     tech: "C++ • Java • Python • Algorithm Efficiency • Research",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
