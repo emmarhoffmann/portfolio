@@ -37,14 +37,14 @@ const projects = [
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
     tech: "Python • Tensorflow • OpenCV • React",
-    image: "/portfolio/StyleSyncAI.JPG",
+    image: "/portfolio/public/StyleSyncAI.JPG",
     github: "https://github.com/emmarhoffmann/StyleSyncAI"
   },
   {
     title: "Aurora Alert",
     description: "Automated Python application that monitors and alerts users to potential aurora borealis sightings based on real-time geomagnetic activity",
     tech: "Python • Webscraping • API Integration • Automation",
-    image: "/portfolio/AuroraAlert.png",
+    image: "/portfolio/public/AuroraAlert.png",
     github: "https://github.com/emmarhoffmann/AuroraAlert"
   },
   {
