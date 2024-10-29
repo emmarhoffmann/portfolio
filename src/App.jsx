@@ -7,42 +7,43 @@ const projects = [
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
     tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
     image: "https://placehold.co/400x300/1a1a1a/ffffff", 
-    url: "https://github.com/emmarhoffmann/skinform"
+    liveDemo: "https://skinform.vercel.app/",
+    github: "https://github.com/emmarhoffmann/skinform"
   },
   {
     title: "Automation System",
-    description: "System automating product management and image generation for Lakeline Design",
+    description: "Co-developed by Emma Hoffmann and Blake Norman, this system automates product management and image processing for Lakeline Design on Etsy and Shopify",
     tech: "Python • Shopify API • Automation • Image Processing",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
-    url: "https://github.com/emmarhoffmann/Lakeline-Design-Automation-System"
+    github: "https://github.com/emmarhoffmann/Lakeline-Design-Automation-System"
   },
   {
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
     tech: "Python • Tensorflow • OpenCV • React",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
-    url: "https://github.com/emmarhoffmann/StyleSyncAI"
+    github: "https://github.com/emmarhoffmann/StyleSyncAI"
   },
   {
-    title: "AuroraAlert",
-    description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
+    title: "Aurora Alert",
+    description: "Automated Python application that monitors and alerts users to potential aurora borealis sightings based on real-time geomagnetic activity",
     tech: "Python • Webscraping • API Integration • Automation",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
-    url: "https://github.com/emmarhoffmann/AuroraAlert"
+    github: "https://github.com/emmarhoffmann/AuroraAlert"
   },
   {
-    title: "Automation System",
-    description: "System automating product management and image generation for Lakeline Design",
-    tech: "Python • Shopify API • Automation",
+    title: "Star Sort",
+    description: "A multi-model machine learning project achieving up to 100% accuracy in classifying star types based on their attributes using five different algorithms.",
+    tech: "Python • Machine Learning • Data Analysis • Modeling",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
-    url: ""
+    github: "https://github.com/emmarhoffmann/StarSort"
   },
   {
     title: "Analysis of Sorting Algorithms",
-    description: "Comparative analysis of various sorting algorithm efficiency in C++, Java, and Python",
-    tech: "Research • C++ • Java • Python",
+    description: "Comparative analysis of the efficiency of five sorting algorithms tested in C++, Java, and Python to evaluate performance",
+    tech: "C++ • Java • Python • Algorithm Efficiency • Research",
     image: "https://placehold.co/400x300/1a1a1a/ffffff",
-    url: "https://github.com/emmarhoffmann/Comparative-Analysis-of-Sorting-Algorithm-Efficiency"
+    github: "https://github.com/emmarhoffmann/Comparative-Analysis-of-Sorting-Algorithm-Efficiency"
   }
 ];
 
@@ -265,7 +266,10 @@ export default function Portfolio() {
 
         {/* See All Projects Button */}
         <div className="flex justify-center mt-12">
-          <button 
+          <a 
+            href="https://github.com/emmarhoffmann?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-2 font-medium w-full max-w-md"
             style={{
               border: '2px solid transparent',
@@ -279,7 +283,7 @@ export default function Portfolio() {
           >
             <GithubIcon className={darkMode ? "text-white" : "text-black"} /> 
             <span className={darkMode ? "text-white" : "text-black"}>SEE ALL PROJECTS</span>
-          </button>
+          </a>
         </div>
       </section>
 
@@ -314,7 +318,7 @@ export default function Portfolio() {
   );
 }
 
-const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode, url }) => (
+const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, darkMode, liveDemo, github }) => (
   <div className="space-y-4">
     <img src={image} alt={title} className="w-full rounded-lg" />
     <h3 className={`text-2xl font-normal mt-4 ${darkMode ? 'text-white' : 'text-black'}`}>
@@ -326,16 +330,29 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, 
     <p style={{ color: techColor }} className="text-sm">
       {tech}
     </p>
-    <a 
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
-      style={{ 
-        borderColor: buttonColor
-      }}
-    >
-      <LinkIcon /> Live demo
-    </a>
+    <div className="flex flex-col space-y-2">
+      {liveDemo && (
+        <a 
+          href={liveDemo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+          style={{ borderColor: buttonColor }}
+        >
+          <LinkIcon /> Live Demo
+        </a>
+      )}
+      {github && (
+        <a 
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-2 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+          style={{ borderColor: buttonColor }}
+        >
+          <GithubIcon /> View Project
+        </a>
+      )}
+    </div>
   </div>
 );
