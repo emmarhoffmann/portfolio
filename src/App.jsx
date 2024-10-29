@@ -149,38 +149,34 @@ export default function Portfolio() {
         
         {/* Contact Buttons */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-4xl">
-          <a href="mailto:erhoffmann@gmail.com">
-            <SocialButton 
-              text="Email" 
-              color="#88EDFF"
-              icon={<EmailIcon />}
-              textColor={darkMode ? "white" : "black"}
-            />
-          </a>
-          <a href="https://www.linkedin.com/in/emmarhoffmann/" target="_blank" rel="noopener noreferrer">
-            <SocialButton 
-              text="LinkedIn" 
-              color="#55BDCF"
-              icon={<LinkedInIcon />}
-              textColor={darkMode ? "white" : "black"}
-            />
-          </a>
-          <a href="/portfolio/assets/Emma-Hoffmann-Resume.pdf" target="_blank" rel="noopener noreferrer">
-            <SocialButton 
-              text="Resume" 
-              color="#329CAE"
-              icon={<ResumeIcon />}
-              textColor={darkMode ? "white" : "black"}
-            />
-          </a>
-          <a href="https://github.com/emmarhoffmann" target="_blank" rel="noopener noreferrer">
-            <SocialButton 
-              text="Github" 
-              color="#0C788B"
-              icon={<GithubIcon />}
-              textColor={darkMode ? "white" : "black"}
-            />
-          </a>
+          <SocialButton 
+            text="Email" 
+            color="#88EDFF"
+            icon={<EmailIcon />}
+            textColor={darkMode ? "white" : "black"}
+            onClick={() => window.location.href = 'mailto:erhoffmann@gmail.com'}
+          />
+          <SocialButton 
+            text="LinkedIn" 
+            color="#55BDCF"
+            icon={<LinkedInIcon />}
+            textColor={darkMode ? "white" : "black"}
+            onClick={() => window.open('https://www.linkedin.com/in/emmarhoffmann/', '_blank')}
+          />
+          <SocialButton 
+            text="Resume" 
+            color="#329CAE"
+            icon={<ResumeIcon />}
+            textColor={darkMode ? "white" : "black"}
+            onClick={() => window.open('/portfolio/assets/Emma-Hoffmann-Resume.pdf', '_blank')}
+          />
+          <SocialButton 
+            text="Github" 
+            color="#0C788B"
+            icon={<GithubIcon />}
+            textColor={darkMode ? "white" : "black"}
+            onClick={() => window.open('https://github.com/emmarhoffmann', '_blank')}
+          />
         </div>
       </section>
       
