@@ -106,7 +106,7 @@ const GithubIcon = () => (
 const SocialButton = ({ text, color, icon, textColor, onClick }) => (
   <button 
     onClick={onClick}
-    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-3 font-medium"
+    className="flex items-center justify-center gap-3 px-8 py-3 rounded-lg border-4 font-medium"
     style={{ 
       borderColor: color,
       color: textColor
@@ -293,9 +293,9 @@ export default function Portfolio() {
            href="https://github.com/emmarhoffmann?tab=repositories"
            target="_blank"
            rel="noopener noreferrer"
-           className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-3 font-medium w-full max-w-md"
+           className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg border-4 font-medium w-full max-w-md"
            style={{
-             border: '3px solid transparent',
+             border: '4px solid transparent',
              borderRadius: '8px',
              backgroundImage: darkMode 
                ? `linear-gradient(black, black), linear-gradient(to right, ${colors.dark.secondary}, ${colors.dark.tertiary}, ${colors.dark.quaternary})` 
@@ -366,7 +366,7 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, 
          href={liveDemo}
          target="_blank"
          rel="noopener noreferrer"
-         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-3 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-4 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
          style={{ borderColor: buttonColor }}
        >
          <LinkIcon /> Live Demo
@@ -377,7 +377,7 @@ const ProjectCard = ({ title, description, tech, image, buttonColor, techColor, 
          href={github}
          target="_blank"
          rel="noopener noreferrer"
-         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-3 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
+         className={`inline-flex items-center gap-2 px-6 py-2 rounded-lg border-4 hover:bg-opacity-10 transition-all font-medium ${darkMode ? 'text-white' : 'text-black'} w-fit`}
          style={{ borderColor: buttonColor }}
        >
          <GithubIcon /> View Project
