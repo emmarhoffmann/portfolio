@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Skinform",
     description: "Live application for users to search products to determine if the product ingredients contain pore-clogging ingredients",
-    tech: "Python • Flask • React • MongoDB • Webscraping • OpenAI API",
+    tech: "Python • Flask • React • MongoDB • BautifulSoup • Web Scraping • OpenAI API",
     image: "skinform.jpg", 
     liveDemo: "https://skinform.vercel.app/",
     github: "https://github.com/emmarhoffmann/skinform"
@@ -36,7 +36,7 @@ const projects = [
   {
     title: "StyleSyncAI",
     description: "Sophisticated AI-powered system that provides personalized beauty and fashion recommendations through computer vision and ML techniques",
-    tech: "Python • Tensorflow • OpenCV • React",
+    tech: "Python • Tensorflow • OpenCV • MediaPipe • NumPy • Pandas • React",
     image: "StyleSyncAI.JPG",
     github: "https://github.com/emmarhoffmann/StyleSyncAI"
   },
@@ -49,7 +49,7 @@ const projects = [
   },
   {
     title: "Star Sort",
-    description: "A multi-model machine learning project achieving up to 100% accuracy in classifying star types based on their attributes using five different algorithms.",
+    description: "A multi-model machine learning project achieving up to 100% accuracy in classifying star types based on their attributes using five different algorithms",
     tech: "Python • scikit-learn • Machine Learning • Data Analysis • Modeling",
     image: "StarSort.jpg",
     github: "https://github.com/emmarhoffmann/StarSort"
@@ -212,8 +212,11 @@ export default function Portfolio() {
               </h4>
               <p style={{ color: currentColors.secondary }}>Cambridge, Minnesota</p>
               <ul className={`space-y-2 mt-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <li>- Executed entire business operations: artwork creation, e-commerce platform administration, order fulfillment, and customer support, achieving over 3,000 sales, 300+ custom orders, and over 400 positive reviews</li>
-                <li>- Developed customized e-commerce features that combined technical improvements with design enhancements to elevate user experience, reducing bounce rate by 40%.</li>
+                <li>- Executed entire business operations: artwork creation, e-commerce platform administration, order fulfillment,
+                      and customer support, achieving over 3,000 sales, 300+ custom orders, and over 400 positive reviews</li>
+                <li>- Co-developed a custom Shopify app with Python, utilizing API integration to automate product
+                      management, and implemented an extensive system for automated product image creation, achieving up
+                      to 98% time savings, 100% conversion rate increase, and significantly enhancing overall customer experience</li>
                 <li>- Reduced bounce rate by 40% through extensive code development and e-commerce enhancements</li>
               </ul>
             </div>
@@ -312,7 +315,7 @@ export default function Portfolio() {
        <h2 className={`text-2xl mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>CONTACT</h2>
        <div className="max-w-2xl">
          <p className={`text-xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-           Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+           Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your team.
          </p>
          <div className="flex flex-col md:flex-row gap-4">
            <a href="mailto:erhoffmann@gmail.com">
