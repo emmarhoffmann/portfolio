@@ -186,7 +186,7 @@ export default function Portfolio() {
             color={currentColors.tertiary}
             icon={<ResumeIcon />}
             textColor={darkMode ? "white" : "black"}
-            onClick={() => window.open('/portfolio/assets/Emma-Hoffmann-Resume.pdf', '_blank')}
+            onClick={() => window.open('Emma-Hoffmann-Resume.pdf', '_blank')}
           />
           <SocialButton 
             text="Github" 
