@@ -172,7 +172,7 @@ export default function Portfolio() {
             color={currentColors.primary}
             icon={<EmailIcon />}
             textColor={darkMode ? "white" : "black"}
-            onClick={() => window.location.href = 'mailto:erhoffmann@gmail.com'}
+            onClick={() => window.location.href = 'mailto:erhoffmann128@gmail.com'}
           />
           <SocialButton 
             text="LinkedIn" 
